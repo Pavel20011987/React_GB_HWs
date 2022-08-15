@@ -68,6 +68,7 @@ function App() {
     [getNewId, messageList]
   );
 
+
   const botSendMessage = useCallback(
     (messages) => {
       if (messages.length === 0) return;
@@ -78,6 +79,10 @@ function App() {
     },
     [addMessage]
   );
+
+
+    return (
+
 
   useEffect(() => {
     setTimeout(() => botSendMessage(messageList), 1500);
@@ -94,6 +99,7 @@ function App() {
               <TextField type="text" label="Current User" value={currentUser} onChange={(e) => setCurrentUser(e.target.value)} />
             </div>
 
+
             <ChatsList chats={chatsList} />
           </div>
 
@@ -106,6 +112,30 @@ function App() {
       </div>
     </ThemeProvider>
   );
+
+    const name = 'Pavel';
+    return ( 
+<div>
+        <Message name = { name }/>  
+ </div>
+    return ( <
+        div className = "App" >
+        <
+        header className = "App-header" >
+        <
+        img src = { logo }
+        className = "App-logo"
+        alt = "logo" / >
+        < p >
+        Edit < code > src / App.js < /code> and save to reload. </p >
+        <a className = "App-link"
+        href = "https://reactjs.org"
+        target = "_blank"
+        rel = "noopener noreferrer" >
+        Learn React < /a>  
+        </header>  </div>
+    );
+
 }
 
 export default App;
