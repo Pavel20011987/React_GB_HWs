@@ -1,3 +1,13 @@
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Site from "./pages/Site";
+import SiteLayout from "./Layouts/SiteLayout";
+import Chat from "./pages/Chat";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
+
+
 import { useState, useEffect, useCallback, useRef } from "react";
 import MessagesList from "./components/messagesList/MessagesList";
 import Tasks from "./components/tasks/Tasks";
@@ -8,6 +18,7 @@ import ChatsList from "./components/chatsList/ChatsList";
 import { TextField } from "@mui/material";
 
 const botMessage = { author: "Bot", body: "" };
+
 const theme = createTheme({
   spacing: [0, 4, 8, 16],
   components: {
@@ -79,6 +90,21 @@ function App() {
     },
     [addMessage]
   );
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path={"/"} element={<SiteLayout />}>
+          <Route index element={<Site />} />
+          <Route path={"/profile"} element={<Profile />} />
+        </Route>
+        <Route path={"/chat"} element={<Chat />} />
+        <Route path={"/chat/:chatId"} element={<Chat />} />
+        <Route path={"*"} element={<NotFound />} />
+      </Routes>
+    </ThemeProvider>
+  );
+
 
 
     return (
