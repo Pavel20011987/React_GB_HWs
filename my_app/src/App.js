@@ -35,32 +35,16 @@ const theme = createTheme({
 function App() {
     return ( <
         ThemeProvider theme = { theme } >
-        <
-        Routes >
-        <
-        Route path = { "/" }
-        element = { < SiteLayout / > } >
-        <
-        Route index element = { < Site / > }
-        /> <
-        Route path = { "/profile" }
-        element = { < Profile / > }
-        /> <
-        Route path = { "/counter" }
-        element = { < Counter / > }
-        /> < /
-        Route > <
-        Route path = { "/chat" }
-        element = { < Chat / > }
-        /> <
-        Route path = { "/chat/:chatId" }
-        element = { < Chat / > }
-        /> <
-        Route path = { "*" }
-        element = { < NotFound / > }
-        /> < /
-        Routes > <
-        /ThemeProvider>
+        <Routes>
+        <Route path = { "/" } element = { <SiteLayout/> } >
+        <Route index element = { < Site/> }/>
+          <Route path = { "/profile" } element = { < Profile/> }/>
+          <Route path = { "/counter" } element = { < Counter/> }/>
+        </Route>
+        <Route path = { "/chat" } element = { <Chat/> }/>
+          <Route path = { "*" } element = { <NotFound/> }/>
+      </Routes>
+          </ThemeProvider>
     );
 }
 
