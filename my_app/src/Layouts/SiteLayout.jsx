@@ -10,6 +10,7 @@ const SiteLayout = () => {
               <CustomLink to={'/chat'}>Chat</CustomLink>
               <CustomLink to={'/profile'}>Profile</CustomLink>
               <CustomLink to={'/counter'}>Counter</CustomLink>
+              <CustomLink to={'/galery'}>Galery</CustomLink>
           </header>
 
           <main><Outlet/></main>
