@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useEffect, useCallback, useRef } from 'react'
 import MessagesList from '../components/messagesList/MessagesList'
 import MessageForm from '../components/messageForm/MessageForm'
 import ChatsList from '../components/chatsList/ChatsList'
@@ -27,8 +26,7 @@ const Chat = () => {
     }
     dispatch(addMessage(message))
     formRef.current.focus()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     setTimeout(() => botSendMessage(messages), 1500)
