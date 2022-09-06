@@ -7,6 +7,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Counter from "./pages/Counter";
+import Galery from "./pages/Galery";
 
 
 import { useState, useEffect, useCallback, useRef } from "react";
@@ -21,30 +22,39 @@ import { TextField } from "@mui/material";
 const botMessage = { author: "Bot", body: "" };
 
 const theme = createTheme({
-    spacing: [0, 4, 8, 16],
-    components: {
-        MuiButton: {
-            defaultProps: {
-                size: "big",
-                variant: "contained",
-                margin: "dense",
-            },
-        },
-        MuiTextField: {
-            defaultProps: {
-                variant: "filled",
-                size: "small",
-            },
-        },
-        MuiStack: {
-            defaultProps: {
-                spacing: 1,
-            },
-        },
+  spacing: [0, 4, 8, 16],
+  components: {
+    MuiButton: {
+      defaultProps: {
+        size: "big",
+        variant: "contained",
+        margin: "dense",
+      },
     },
+    MuiTextField: {
+      defaultProps: {
+        variant: "filled",
+        size: "small",
+      },
+    },
+    MuiStack: {
+      defaultProps: {
+        spacing: 1,
+      },
+    },
+  },
 });
 
 function App() {
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path={"/"} element={<SiteLayout />}>
+          <Route index element={<Site />} />
+          <Route path={"/profile"} element={<Profile />} />
+          <Route path={"/counter"} element={<Counter />} />
+          <Route path={"/galery"} element={<Galery />} />
 
     return ( <
         ThemeProvider theme = { theme } >
@@ -53,10 +63,15 @@ function App() {
         <Route index element = { < Site/> }/>
           <Route path = { "/profile" } element = { < Profile/> }/>
           <Route path = { "/counter" } element = { < Counter/> }/>
+
         </Route>
-        <Route path = { "/chat" } element = { <Chat/> }/>
-          <Route path = { "*" } element = { <NotFound/> }/>
+        <Route path={"/chat"} element={<Chat />} />
+        <Route path={"*"} element={<NotFound />} />
       </Routes>
+
+    </ThemeProvider>
+  );
+
           </ThemeProvider>
     );
   const [currentUser, setCurrentUser] = useState("John");
