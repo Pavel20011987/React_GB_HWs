@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { configureStore } from "@reduxjs/toolkit";
 import authSlice from "./authSlice";
 import chatSlice from "./chatSlice";
