@@ -1,21 +1,29 @@
 import React from 'react'
-import {Outlet} from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import AuthHeader from '../components/authHeader/authHeader'
 import CustomLink from '../components/customLink/CustomLink'
 
 const SiteLayout = () => {
   return (
-      <>
-          <header>
-              <CustomLink to={'/'}>Home</CustomLink>
-              <CustomLink to={'/chat'}>Chat</CustomLink>
-              <CustomLink to={'/profile'}>Profile</CustomLink>
-              <CustomLink to={'/counter'}>Counter</CustomLink>
-              <CustomLink to={'/galery'}>Galery</CustomLink>
-          </header>
+    <>
+      <header>
+        <div>
+          <CustomLink to={'/'}>Home</CustomLink>
+          <CustomLink to={'/chat'}>Chat</CustomLink>
+          <CustomLink to={'/profile'}>Profile</CustomLink>
+          <CustomLink to={'/counter'}>Counter</CustomLink>
+          <CustomLink to={'/galery'}>Galery</CustomLink>
+          <CustomLink to={'/Contacts'}>Contacts</CustomLink>
+        </div>
+        <AuthHeader/>
+      </header>
 
-          <main><Outlet/></main>
-      </>
+      <main>
+        <Outlet />
+      </main>
+    </>
   )
 }
 
 export default SiteLayout
+
